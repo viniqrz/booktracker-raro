@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Review } from './ReviewEntity';
-import { Comment } from './CommentEntity';
 import { Session } from './SessionEntity';
+import { Read } from './ReadEntity';
 
 @Entity()
 export class Book {
@@ -25,4 +25,7 @@ export class Book {
 
   @OneToMany(() => Review, (review) => review.book)
   reviews: Review[];
+
+  @OneToMany(() => Read, (read) => read.book)
+  reads: Read[];
 }
